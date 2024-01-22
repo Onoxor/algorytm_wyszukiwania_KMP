@@ -17,3 +17,5 @@ print(f"Czas wykonania obliczeń: {end_time - start_time} sekund")
 your_factor = universal_factor / (end_time-start_time)
 
 print(f"Twój czynnik uśredniający do obliczeń czasu wynosi: ", your_factor)
+
+your_factor = 1.585398273821021

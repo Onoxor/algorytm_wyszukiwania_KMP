@@ -54,9 +54,9 @@ def czytaj_z_pliku(nazwa_pliku):
 # Przykład użycia
 nazwa_pliku = 'tekst.txt'
 tekst = czytaj_z_pliku(nazwa_pliku)
-wzorzec = "."
+wzorzec = "Alice"
 start_time = time.time()
 kmp_wyszukiwanie(tekst, wzorzec)
 end_time = time.time()
-print(f"Wyszukiwanie trwało: ", (end_time - start_time), " sekund.")
+print(f"Wyszukiwanie trwało: ", (end_time - start_time) * 1.585398273821021, " sekund.")
 

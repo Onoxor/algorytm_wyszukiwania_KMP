@@ -33,7 +33,7 @@ class TestKMPAlgorithm(unittest.TestCase):
     def test_empty_pattern(self):
         text = "abcdefgh"
         pattern = ""
-        self.assertEqual(kmp_search(text, pattern), len(text) + 1)  # Oczekujemy jednego więcej dopasowania niż długość tekstu
+        self.assertEqual(kmp_search(text, pattern), 0)
 
 
     def test_empty_text(self):
@@ -46,10 +46,10 @@ class TestKMPAlgorithm(unittest.TestCase):
         pattern = "abc"
         self.assertEqual(kmp_search(text, pattern), len(text)//len(pattern))
 
-    # def test_long_text_and_pattern(self):
-    #     text = "a" * 10**4 + "b" * 10**4 + "c" * 10**4
-    #     pattern = "b" * 10**4
-    #     self.assertGreaterEqual(kmp_search(text, pattern), 1)
+    def test_long_text_and_pattern(self):
+        text = "ab" * 10 ** 6 + "cd" * 10 ** 6
+        pattern = "cd" * 10 ** 6
+        self.assertGreaterEqual(kmp_search(text, pattern), 1)
 
     def test_unique_characters_in_text(self):
         text = "abcdefgh"
@@ -59,6 +59,9 @@ class TestKMPAlgorithm(unittest.TestCase):
 
 # Poniżej dodatkowe funkcje potrzebne do przeprowadzenia testów
 def kmp_search(text, pattern):
+    if not pattern:
+        return 0  # Jeśli wzorzec jest pusty, nie ma dopasowań
+
     tablica_dopasowan = kmp_tablica(pattern)
     indeks_tekstu = 0
     indeks_wzorca = 0
